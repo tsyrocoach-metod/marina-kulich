@@ -163,7 +163,6 @@ main{position:relative;z-index:1}
 #perch{position:relative;height:330px}
 .perch-line{position:absolute;left:50%;top:0;width:1px;height:74px;background:var(--line)}
 .perch-cap{position:absolute;left:50%;top:0;width:7px;height:7px;margin-left:-3px;border-radius:50%;background:var(--acc)}
-.stagelabel{position:absolute;left:0;right:0;bottom:4px;text-align:center;transition:opacity .5s}
 
 /* ── отзывы ── */
 .quotes{columns:2;column-gap:1.6rem}
@@ -199,16 +198,22 @@ footer .r4{color:var(--amber-lt)}
 html:not(.js) .rv{opacity:1;transform:none}
 
 /* ═════ ЖИВАЯ БАБОЧКА ═════ */
-#fly{position:fixed;left:0;top:0;z-index:30;pointer-events:none;width:0;height:0;
-     perspective:700px;will-change:transform;opacity:0;transition:opacity .8s var(--ease)}
+/* у #fly обязательно НЕнулевой размер: слой нулевого размера обрезает 3D-крылья */
+#fly{position:fixed;left:0;top:0;z-index:30;pointer-events:none;
+     width:264px;height:232px;margin:-116px 0 0 -132px;
+     perspective:760px;opacity:0;transition:opacity .9s var(--ease);will-change:transform}
 #fly.awake{opacity:1}
-.stage{position:absolute;left:0;top:0;opacity:0;transition:opacity .45s var(--ease);transform-style:preserve-3d}
-.stage.on{opacity:1}
-.st-butterfly{width:196px;height:164px;margin:-82px 0 0 -98px}
-.st-butterfly img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.shade{position:absolute;left:50%;top:63%;width:54%;height:12%;margin-left:-27%;border-radius:50%;
+.stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+       opacity:0;visibility:hidden;transition:opacity .38s var(--ease),visibility 0s linear .38s}
+.stage.on{opacity:1;visibility:visible;transition:opacity .38s var(--ease),visibility 0s}
+.pic{position:relative;transform-style:preserve-3d}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.pic-b{width:200px;height:167px}
+.pic-p{width:60px;height:177px}
+.pic-l{width:172px;height:57px}
+.shade{position:absolute;left:50%;top:62%;width:54%;height:12%;margin-left:-27%;border-radius:50%;
   background:radial-gradient(closest-side,rgba(70,44,20,.3),rgba(70,44,20,0) 72%);filter:blur(3px)}
-.w{transform-origin:50% 50%;backface-visibility:hidden}
+.w{transform-origin:50% 50%}
 .wl{animation:flapL .27s ease-in-out infinite alternate}
 .wr{animation:flapR .27s ease-in-out infinite alternate}
 @keyframes flapL{from{transform:rotateY(-8deg)}to{transform:rotateY(-52deg)}}
@@ -217,16 +222,15 @@ html:not(.js) .rv{opacity:1;transform:none}
 #fly.rest .wr{animation:restR 4.4s ease-in-out infinite}
 @keyframes restL{0%,88%{transform:rotateY(-15deg)}94%{transform:rotateY(-36deg)}100%{transform:rotateY(-15deg)}}
 @keyframes restR{0%,88%{transform:rotateY(15deg)}94%{transform:rotateY(36deg)}100%{transform:rotateY(15deg)}}
-.st-pupa{width:60px;height:177px;margin:-16px 0 0 -30px}
-.st-pupa img{filter:drop-shadow(0 9px 11px rgba(70,44,20,.26));animation:sway 5.4s ease-in-out infinite;transform-origin:50% 4%}
+.pic-p img{filter:drop-shadow(0 9px 11px rgba(70,44,20,.26));animation:sway 5.4s ease-in-out infinite;transform-origin:50% 4%}
 @keyframes sway{0%,100%{transform:rotate(-3.2deg)}50%{transform:rotate(3.2deg)}}
-.st-larva{width:172px;height:57px;margin:-12px 0 0 -86px}
-.st-larva img{filter:drop-shadow(0 7px 9px rgba(70,44,20,.26));animation:crawl 3.6s ease-in-out infinite}
+.pic-l img{filter:drop-shadow(0 7px 9px rgba(70,44,20,.26));animation:crawl 3.6s ease-in-out infinite}
 @keyframes crawl{0%,100%{transform:translateX(-9px)}50%{transform:translateX(9px)}}
 @media(max-width:760px){
-  .st-butterfly{width:124px;height:104px;margin:-52px 0 0 -62px}
-  .st-pupa{width:44px;height:130px;margin:-12px 0 0 -22px}
-  .st-larva{width:126px;height:42px;margin:-9px 0 0 -63px}
+  #fly{width:184px;height:164px;margin:-82px 0 0 -92px}
+  .pic-b{width:128px;height:107px}
+  .pic-p{width:44px;height:130px}
+  .pic-l{width:126px;height:42px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -242,14 +246,14 @@ html:not(.js) .rv{opacity:1;transform:none}
 <div id="progress"></div>
 
 <div id="fly" aria-hidden="true">
-  <div class="stage st-butterfly on" id="sButterfly">
+  <div class="stage on" id="sButterfly"><div class="pic pic-b">
     <span class="shade"></span>
     <img class="w wl" src="assets/w-left.webp" alt="">
     <img class="w wr" src="assets/w-right.webp" alt="">
     <img class="bd" src="assets/w-body.webp" alt="">
-  </div>
-  <div class="stage st-pupa" id="sPupa"><img src="assets/pupa.webp" alt=""></div>
-  <div class="stage st-larva" id="sLarva"><img src="assets/larva.webp" alt=""></div>
+  </div></div>
+  <div class="stage" id="sPupa"><div class="pic pic-p"><img src="assets/pupa.webp" alt=""></div></div>
+  <div class="stage" id="sLarva"><div class="pic pic-l"><img src="assets/larva.webp" alt=""></div></div>
 </div>
 
 <header class="site-head">
@@ -319,7 +323,6 @@ html:not(.js) .rv{opacity:1;transform:none}
     </div>
     <div id="perch">
       <span class="perch-line"></span><span class="perch-cap"></span>
-      <p class="r4 stagelabel" id="stagelabel">Бабочка садится</p>
     </div>
   </div>
 </section>
@@ -520,7 +523,6 @@ html:not(.js) .rv{opacity:1;transform:none}
   </div>
 </footer>
 
-<script>window.__STAGE_NAMES__ = {"fly":"Бабочка","pupa":"Куколка","larva":"Гусеница","wait":"Бабочка садится"};</script>
 <script>
 document.documentElement.className += ' js';
 (function(){
@@ -548,74 +550,90 @@ document.documentElement.className += ' js';
 
   if (reduce) return;
 
-  /* ═══ бабочка ═══ */
+  /* ═══ бабочка ═══
+     Появляется на обложке, летит за курсором, молча садится у раздела
+     превращения, один раз проходит цикл и растворяется. Ни на одном
+     кадре не видно двух стадий сразу: смена идёт через паузу. */
   var fly   = document.getElementById('fly');
   var perch = document.getElementById('perch');
   if (!fly || !perch) return;
-  var label = document.getElementById('stagelabel');
-  var stages = {
+
+  var S = {
     fly:   document.getElementById('sButterfly'),
     pupa:  document.getElementById('sPupa'),
     larva: document.getElementById('sLarva')
   };
-  var NAMES = window.__STAGE_NAMES__;
-  var order = ['fly','pupa','larva','pupa','fly'];
+  var ORDER = ['pupa','larva','pupa','fly'];   /* что показываем после посадки */
+  var SWAP  = 420;                             /* пауза между стадиями, мс */
+  var HOLD  = 2500;                            /* сколько держится стадия, мс */
+
+  var current = 'fly', landed = false, finished = false, step = -1;
+  var swapT = null, cycT = null;
+
+  function setStage(k){
+    if (k === current) return;
+    current = k;
+    for (var s in S) S[s].classList.remove('on');
+    clearTimeout(swapT);
+    swapT = setTimeout(function(){ S[k].classList.add('on'); }, SWAP);
+  }
+  function runCycle(){
+    step++;
+    if (step >= ORDER.length){ finish(); return; }
+    setStage(ORDER[step]);
+    cycT = setTimeout(runCycle, HOLD);
+  }
+  function finish(){
+    finished = true;
+    fly.classList.remove('awake');
+  }
+  function land(){
+    if (landed || finished) return;
+    landed = true; step = -1;
+    fly.classList.add('rest');
+    clearTimeout(cycT);
+    cycT = setTimeout(runCycle, 1400);
+  }
+  function reset(){
+    if (!landed && !finished) return;
+    landed = false; finished = false; step = -1;
+    clearTimeout(cycT); clearTimeout(swapT);
+    fly.classList.remove('rest');
+    for (var s in S) S[s].classList.remove('on');
+    S.fly.classList.add('on');
+    current = 'fly';
+    fly.classList.add('awake');
+  }
 
   var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
   var x = innerWidth*0.76, y = innerHeight*0.42;
   var tx = x, ty = y, px = x, py = y, ang = 0;
   var mx = x, my = y, t = 0;
-  var landed = false, step = 0, timer = null, current = 'fly';
 
   if (fine) addEventListener('pointermove', function(e){ mx = e.clientX; my = e.clientY; }, {passive:true});
-
-  function show(k){
-    if (k === current) return;
-    current = k;
-    for (var s in stages) stages[s].classList.toggle('on', s === k);
-    if (label) label.textContent = NAMES[k];
-  }
-  function cycle(){
-    step = (step + 1) % order.length;
-    show(order[step]);
-    timer = setTimeout(cycle, 2800);
-  }
-  function land(){
-    if (landed) return;
-    landed = true; step = 0;
-    fly.classList.add('rest');
-    if (label) label.style.opacity = 1;
-    clearTimeout(timer);
-    timer = setTimeout(cycle, 1500);
-  }
-  function takeoff(){
-    if (!landed) return;
-    landed = false; step = 0;
-    clearTimeout(timer); timer = null;
-    fly.classList.remove('rest');
-    show('fly');
-    if (label){ label.textContent = NAMES.wait; label.style.opacity = .55; }
-  }
-
-  setTimeout(function(){ fly.classList.add('awake'); }, 900);
+  setTimeout(function(){ if(!finished) fly.classList.add('awake'); }, 900);
 
   function loop(){
     t += 0.016;
     var r = perch.getBoundingClientRect();
-    var visible = r.top < innerHeight*0.66 && r.bottom > innerHeight*0.28;
 
-    if (visible){
-      tx = r.left + r.width/2;
-      ty = r.top + 108;
-      if (Math.abs(x-tx) < 30 && Math.abs(y-ty) < 30) land();
-    } else {
-      takeoff();
-      if (fine){
-        tx = mx + Math.cos(t*0.85) * 116;
-        ty = my + Math.sin(t*1.25) * 66 - 28;
-      } else {
-        tx = innerWidth  * (0.5  + 0.3 *Math.sin(t*0.5));
-        ty = innerHeight * (0.34 + 0.17*Math.cos(t*0.7));
+    /* прокрутили обратно вверх — бабочка возвращается */
+    if (finished && r.top > innerHeight) reset();
+
+    if (!finished){
+      var atPerch = r.top < innerHeight*0.66 && r.bottom > innerHeight*0.28;
+      if (atPerch){
+        tx = r.left + r.width/2;
+        ty = r.top + 112;
+        if (Math.abs(x-tx) < 30 && Math.abs(y-ty) < 30) land();
+      } else if (!landed){
+        if (fine){
+          tx = mx + Math.cos(t*0.85) * 118;
+          ty = my + Math.sin(t*1.25) * 68 - 28;
+        } else {
+          tx = innerWidth  * (0.5  + 0.3 *Math.sin(t*0.5));
+          ty = innerHeight * (0.34 + 0.17*Math.cos(t*0.7));
+        }
       }
     }
 
@@ -636,7 +654,6 @@ document.documentElement.className += ' js';
     fly.style.transform = 'translate(' + x.toFixed(1) + 'px,' + (y+bob).toFixed(1) + 'px) rotate(' + ang.toFixed(2) + 'deg)';
     requestAnimationFrame(loop);
   }
-  if (label) label.style.opacity = .55;
   requestAnimationFrame(loop);
 })();
 </script>
