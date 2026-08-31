@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Марина Кулич – адвокат вашей взрослости</title>
+<meta name="description" content="Марина Кулич: психосоматолог, натуропат, доктор психологии. Метод работы через тело, психику и душу. Индивидуально, с парой, с семьёй. Онлайн и офлайн, итальянский и русский.">
+<meta property="og:title" content="Марина Кулич – адвокат вашей взрослости">
+<meta property="og:description" content="Метод работы через тело, психику и душу. Индивидуально, с парой, с семьёй.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="it_IT">
+<link rel="alternate" hreflang="it" href="https://tsyrocoach-metod.github.io/marina-kulich/">
+<link rel="alternate" hreflang="ru" href="https://tsyrocoach-metod.github.io/marina-kulich/ru/">
+<link rel="alternate" hreflang="x-default" href="https://tsyrocoach-metod.github.io/marina-kulich/">
+<script>document.documentElement.className+=" js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   ТИПОГРАФИЧЕСКАЯ ШКАЛА – ровно 4 роли, курсивов нет.
+   Р1 .r1   заголовок раздела и обложки  – Literata, один размер
+   Р2 .r2   подзаголовок карточки        – Onest 600
+   Р3 .r3   текст (всё остальное)        – Onest 400, один размер, один цвет
+   Р4 .r4   метка / номер раздела        – Onest 500, CAPS, разрядка
+   Инлайн font-size / color / font-weight в разметке не используются.
+   ───────────────────────────────────────────────────────────── */
+
+:root{
+  --ink:#0C0D10;
+  --bone:#EFEBE3;
+  --bone-2:#E4DFD5;
+  --muted:#8C887F;
+  --muted-dark:#6E6A62;
+  --ember:#C4653C;
+  --ember-soft:#D98A63;
+  --line-l:rgba(239,235,227,.14);
+  --line-d:rgba(12,13,16,.14);
+
+  --r1: clamp(1.85rem, 4.4vw, 3.1rem);
+  --r2: clamp(1.05rem, 1.5vw, 1.22rem);
+  --r3: clamp(1rem, 1.25vw, 1.09rem);
+  --r4: .72rem;
+
+  --pad: clamp(1.25rem, 6vw, 6rem);
+  --gap: clamp(2.5rem, 6vw, 5.5rem);
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--bone);
+  font-family:'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size:var(--r3);
+  line-height:1.62;
+  font-weight:400;
+  overflow-x:hidden;
+}
+em,i{font-style:normal}
+a{cursor:pointer}
+button{cursor:pointer;font:inherit}
+:focus-visible{outline:2px solid var(--ember-soft);outline-offset:3px;border-radius:3px}
+
+/* ── роли ── */
+.r1{font-family:'Literata', Georgia, serif;font-weight:300;font-size:var(--r1);line-height:1.14;letter-spacing:-.015em}
+.r2{font-size:var(--r2);font-weight:600;line-height:1.35}
+.r3{font-size:var(--r3)}
+.r4{font-size:var(--r4);font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ember);line-height:1.5}
+
+/* ── каркас ── */
+section{padding:var(--gap) var(--pad);position:relative}
+.wrap{max-width:1180px;margin:0 auto;position:relative}
+.narrow{max-width:760px}
+.light{background:var(--bone);color:var(--ink)}
+.dim{color:var(--muted)}
+.light .dim{color:var(--muted-dark)}
+.rule{height:1px;background:var(--line-l);border:0;margin:2.2rem 0}
+.light .rule{background:var(--line-d)}
+.lede{max-width:56ch}
+.stack > * + *{margin-top:1rem}
+.head{margin-bottom:2.6rem}
+.head .r4{margin-bottom:1rem}
+.head .r1{max-width:20ch}
+.head .lede{margin-top:1.4rem}
+
+/* ── зерно на тёмных фонах ── */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+body > *{position:relative;z-index:1}
+
+/* ── языковая панель ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:.7rem var(--pad);
+  background:rgba(12,13,16,.72);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transform:translateY(-100%);
+  transition:transform .35s var(--ease), border-color .35s var(--ease);
+}
+.topbar.show{transform:translateY(0);border-bottom-color:var(--line-l)}
+.lang{display:flex;align-items:center;gap:.15rem}
+.lang a, .lang span{
+  display:inline-block;padding:.25rem .55rem;border-radius:100px;
+  text-decoration:none;color:var(--muted);
+  font-size:var(--r4);font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  transition:color .2s var(--ease), background-color .2s var(--ease);
+}
+.lang a:hover{color:var(--bone);background:rgba(239,235,227,.08)}
+.lang .on{color:var(--ink);background:var(--ember)}
+
+/* ── обложка ── */
+.hero{
+  min-height:clamp(560px,92svh,900px);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding-top:clamp(2rem,7vh,4.5rem);padding-bottom:clamp(2rem,7vh,4rem);
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:auto -20% -55% auto;
+  width:min(78vw,760px);height:min(78vw,760px);border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, rgba(196,101,60,.30), rgba(196,101,60,0) 68%);
+  pointer-events:none;
+}
+.hero > *{position:relative;z-index:1}
+.hero-top{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+.hero-meta{display:flex;gap:1rem 1.6rem;flex-wrap:wrap;align-items:center}
+.hero-name{max-width:22ch}
+.hero-mid{margin-top:auto;padding-top:3rem}
+.hero-sub{margin-top:1.6rem;max-width:48ch}
+.hero-foot{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line-l);display:flex;gap:1.6rem 2.6rem;flex-wrap:wrap;align-items:center}
+
+/* ── кнопки ── */
+.cta{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.95rem 1.7rem;border-radius:100px;
+  background:var(--ember);color:var(--bone);
+  text-decoration:none;font-weight:600;font-size:var(--r3);
+  transition:transform .2s var(--ease), background-color .2s var(--ease);
+}
+.cta:hover{transform:translateY(-2px);background:var(--ember-soft)}
+.cta-ghost{background:transparent;color:inherit;border:1px solid var(--line-l)}
+.cta-ghost:hover{background:rgba(239,235,227,.06)}
+.light .cta-ghost{border-color:var(--line-d)}
+.light .cta-ghost:hover{background:rgba(12,13,16,.05)}
+
+/* ── голос клиента ── */
+.voices{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-l);border:1px solid var(--line-l)}
+@media(min-width:560px){.voices{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.voices{grid-template-columns:repeat(3,1fr)}}
+.voice{background:var(--ink);padding:1.5rem 1.4rem;transition:background-color .3s var(--ease)}
+.voice:hover{background:#101216}
+.voice::before{content:"«";color:var(--ember);display:block;margin-bottom:.2rem}
+
+/* ── нумерованные блоки ── */
+.rows{border-top:1px solid var(--line-l)}
+.light .rows{border-color:var(--line-d)}
+.row{display:grid;grid-template-columns:5.5rem minmax(0,20ch) minmax(0,1fr);gap:1.2rem 2rem;padding:1.9rem 0;border-bottom:1px solid var(--line-l);align-items:start}
+.light .row{border-color:var(--line-d)}
+.row-body > * + *{margin-top:.7rem}
+
+/* ── карточки ── */
+.cards{display:grid;grid-template-columns:1fr;gap:1.6rem}
+@media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .cards-2{grid-template-columns:repeat(2,1fr)}
+}
+.card{border:1px solid var(--line-l);border-radius:14px;padding:1.7rem 1.5rem;display:flex;flex-direction:column;gap:.8rem;transition:border-color .3s var(--ease), transform .3s var(--ease)}
+.card:hover{border-color:rgba(196,101,60,.5);transform:translateY(-3px)}
+.light .card{border-color:var(--line-d);background:var(--bone-2)}
+.light .card:hover{border-color:rgba(196,101,60,.55)}
+
+/* ── три слоя ── */
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0}
+.layer{padding:2rem 0;border-top:1px solid var(--line-d)}
+@media(min-width:860px){
+  .layers{gap:2.6rem}
+  .layer + .layer{padding-left:2.6rem;border-left:1px solid var(--line-d)}
+  .layer{padding-top:1.6rem}
+}
+.layer > * + *{margin-top:.8rem}
+
+/* ── блок-диагноз ── */
+.pull{padding:var(--gap) var(--pad);border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l)}
+.pull .r1{max-width:22ch}
+.pull-note{margin-top:1.6rem;max-width:52ch}
+
+/* ── отзывы ── */
+.quotes{columns:2;column-gap:1.6rem}
+@media(max-width:760px){.quotes{columns:1}}
+.quote{break-inside:avoid;margin-bottom:1.6rem;border-left:2px solid var(--ember);padding:.2rem 0 .2rem 1.2rem}
+
+/* ── регалии ── */
+.creds{margin-top:1.4rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem 2rem}
+.cred > * + *{margin-top:.35rem}
+
+/* ── контакт ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem;margin-top:2.4rem}
+.tbd{color:var(--ember)}
+
+footer{padding:2.4rem var(--pad) 3.2rem;border-top:1px solid var(--line-l)}
+.foot-row{display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;align-items:center}
+
+/* ── заглушки под фото ── */
+.ph{
+  position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:.35rem;
+  padding:1.2rem;border-radius:14px;overflow:hidden;
+  border:1px dashed rgba(196,101,60,.5);
+  background:linear-gradient(140deg, rgba(196,101,60,.10), rgba(239,235,227,.02));
+}
+.light .ph{background:linear-gradient(140deg, rgba(196,101,60,.10), rgba(12,13,16,.02))}
+.ph::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(196,101,60,.10) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(196,101,60,.10) 1px, transparent 1px);
+  background-size:34px 34px;
+}
+.ph > *{position:relative}
+.ph-portrait{aspect-ratio:4/5}
+.ph-wide{aspect-ratio:16/9}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:end}
+@media(min-width:980px){.hero-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:3.5rem}}
+.about-grid{display:grid;grid-template-columns:1fr;gap:2.2rem;align-items:start}
+@media(min-width:980px){.about-grid{grid-template-columns:minmax(0,1fr) minmax(0,.5fr);gap:3.5rem}}
+
+/* ── превращение гусеницы в бабочку ── */
+.morph-wrap{margin-top:2.4rem;padding-top:2rem;border-top:1px solid var(--line-l);max-width:52ch}
+.morph{width:100%;height:auto;display:block;overflow:visible}
+.morph .stage{opacity:0}
+.morph .m-cat{animation:mCat 15s linear infinite}
+.morph .m-pupa{animation:mPupa 15s linear infinite}
+.morph .m-fly{animation:mFly 15s linear infinite}
+.morph .crawl{animation:mCrawl 15s ease-in-out infinite}
+.morph .sway{transform-box:view-box;transform-origin:160px 34px;animation:mSway 15s ease-in-out infinite}
+.morph .wing{transform-box:view-box;transform-origin:160px 92px;animation:mFlap 3.4s ease-in-out infinite}
+.morph .lift{animation:mLift 15s ease-in-out infinite}
+@keyframes mCat{0%,24%{opacity:1}32%,100%{opacity:0}}
+@keyframes mPupa{0%,26%{opacity:0}34%,54%{opacity:1}62%,100%{opacity:0}}
+@keyframes mFly{0%,56%{opacity:0}64%,92%{opacity:1}100%{opacity:0}}
+@keyframes mCrawl{0%{transform:translateX(-14px)}24%{transform:translateX(14px)}100%{transform:translateX(14px)}}
+@keyframes mSway{0%,30%{transform:rotate(-2.5deg)}42%{transform:rotate(2.5deg)}54%{transform:rotate(-1.5deg)}100%{transform:rotate(0)}}
+@keyframes mFlap{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.78)}}
+@keyframes mLift{0%,60%{transform:translateY(6px)}80%{transform:translateY(-8px)}100%{transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){
+  .morph .m-cat,.morph .m-pupa{opacity:.28;animation:none}
+  .morph .m-fly{opacity:1;animation:none}
+  .morph .crawl,.morph .sway,.morph .wing,.morph .lift{animation:none}
+}
+
+/* ── появление при прокрутке ── */
+.js .rise{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease), transform .7s var(--ease)}
+.js .rise.in{opacity:1;transform:none}
+
+@media(max-width:760px){
+  .row{grid-template-columns:3.2rem minmax(0,1fr)}
+  .row-title{grid-column:2}
+  .row-body{grid-column:2}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  .js .rise{opacity:1;transform:none}
+  .topbar{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <p class="r4">Марина Кулич</p>
+  <nav class="lang" aria-label="Язык">
+    <a href="../" hreflang="it" lang="it">IT</a>
+    <span class="on" aria-current="true">RU</span>
+  </nav>
+</div>
+
+<!-- ═══════════ ОБЛОЖКА ═══════════ -->
+<section class="hero">
+  <div class="wrap hero-top">
+    <p class="r4">Марина Кулич</p>
+    <div class="hero-meta">
+      <p class="r4">Италия · офлайн и онлайн</p>
+      <nav class="lang" aria-label="Язык">
+        <a href="../" hreflang="it" lang="it">IT</a>
+        <span class="on" aria-current="true">RU</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap hero-mid hero-grid">
+    <div>
+    <h1 class="r1 hero-name">Адвокат вашей души – и вашей взрослости.</h1>
+    <p class="r3 hero-sub dim">Я работаю с людьми, у которых снаружи всё более-менее в порядке, а внутри – ощущение, что живёшь чуть мимо своей жизни. Веду через тело, психику и душу. Индивидуально, с парой и с семьёй.</p>
+    <div class="hero-foot">
+      <a class="cta" href="#contact">Написать Марине</a>
+      <a class="cta cta-ghost" href="#method">Как я работаю</a>
+    </div>
+    </div>
+
+    <div class="ph ph-portrait">
+      <p class="r4">ФОТО</p>
+      <p class="r3 dim">Главный портрет Марины, вертикальный 4:5. Взгляд в камеру, естественный свет.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 01 ═══════════ -->
+<section>
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">01 · С чем приходят</p>
+      <h2 class="r1">Люди приходят ко мне вот этими словами.</h2>
+      <p class="r3 lede dim">Почти никто не говорит «мне нужно повзрослеть». Говорят по-другому – и я слышу за этим одно и то же.</p>
+    </div>
+
+    <div class="voices">
+      <p class="r3 voice">Я не могу спать. Тело как будто сжато в кулак, и это не проходит.»</p>
+      <p class="r3 voice">Я заложник ситуации. Понимаю, что она себя изжила, но не знаю, как выйти.»</p>
+      <p class="r3 voice">Живу не в своей жизни. Жизнь проходит, а я как белка в колесе.»</p>
+      <p class="r3 voice">Хочу – но боюсь. Не знаю, смогу ли. Не знаю, достойна ли.»</p>
+      <p class="r3 voice">Не знаю, чего хочу. Иногда кажется, что не хочу вообще ничего.»</p>
+      <p class="r3 voice">Снаружи всё есть. А внутри пусто, и я не понимаю, почему.»</p>
+    </div>
+
+    <hr class="rule">
+    <p class="r3 lede dim">Часть приходит вообще не с этим – а с телом: гормональные сбои, ЖКТ, бессонница, тревожность. И уже на первой встрече выясняется, что за симптомом стоит что-то, что давно требует внимания.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 02 ═══════════ -->
+<section>
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">02 · Почему прошлые попытки не сработали</p>
+      <h2 class="r1">Вы можете годами этим заниматься – и оставаться на месте.</h2>
+      <p class="r3 lede dim">Это не ваша проблема. Это проблема подхода.</p>
+    </div>
+
+    <div class="rows">
+      <div class="row">
+        <p class="r4">01</p>
+        <p class="r2 row-title">Медитации и духовные практики</p>
+        <div class="row-body">
+          <p class="r3">Дают состояние – но не дают выхода из состояния в жизнь.</p>
+          <p class="r3 dim">Возвращаетесь с «я всё поняла» – и через 3 дня всё по-прежнему. Понимание в голове не равно изменению в жизни.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="r4">02</p>
+        <p class="r2 row-title">Классическая психология</p>
+        <div class="row-body">
+          <p class="r3">Работает с головой. А жизнь меняется не там.</p>
+          <p class="r3 dim">Вы понимаете, откуда это идёт. Но тело по-прежнему трусит, а решения по-прежнему не принимаются.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="r4">03</p>
+        <p class="r2 row-title">Духовные наставники</p>
+        <div class="row-body">
+          <p class="r3">Красиво – но непонятно, что делать в понедельник.</p>
+          <p class="r3 dim">Пробуждение, предназначение, свет. А потом снова паралич перед решением, потому что между вдохновением и реальной жизнью нет моста.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule">
+    <p class="r3 lede dim">Изменения происходят там, где встречаются 3 вещи: тело, которое наконец услышали, знание себя – и действия, которые из этого вырастают. Уберите любое из трёх, и всё останется разговором о переменах.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 03 ═══════════ -->
+<div class="pull">
+  <div class="wrap rise">
+    <p class="r4">03 · Настоящая причина</p>
+    <hr class="rule">
+    <h2 class="r1">Любую проблему, которую вы мне назовёте, я сведу к одному: вы ещё не повзрослели. И это можно изменить.</h2>
+    <div class="pull-note stack">
+      <p class="r3 dim">Человек рождается гусеницей. Стать бабочкой – не автоматический момент. Биологически вы взрослеете сами, психологически это осознанный выбор, который большинство так и не делает.</p>
+      <p class="r3 dim">Взрослый – это не тот, кому исполнилось 18, и не тот, у кого появились дети, деньги или мудрость. Взрослый – это человек, который владеет собой: который умеет нести последствия своих решений, а не избегать их.</p>
+      <p class="r3">Пока вашему сыну нет 18 лет, с ним никто не подпишет контракт. Так же и ваша душа не подписывает контрактов с невзрослым: ни отношения мечты, ни дело, ни деньги, ни ощущение, что жизнь – ваша.</p>
+      <p class="r3 dim">Поэтому я не обещаю пробуждения. Я обещаю эволюцию – медленнее, чем хочется, и устойчивее, чем кажется возможным.</p>
+    </div>
+
+      <div class="morph-wrap">
+        <svg class="morph" viewBox="0 0 320 165" role="img" aria-label="Гусеница превращается в куколку, а затем в бабочку" xmlns="http://www.w3.org/2000/svg">
+          <g class="stage m-cat" fill="none" stroke="#C4653C" stroke-width="1.6" stroke-linecap="round">
+            <g class="crawl">
+              <path d="M84 128 C 100 112, 116 144, 132 126 C 148 108, 164 140, 180 124" stroke-opacity=".55"/>
+              <circle cx="86" cy="126" r="10"/><circle cx="106" cy="130" r="10"/>
+              <circle cx="126" cy="126" r="10"/><circle cx="146" cy="130" r="10"/>
+              <circle cx="166" cy="126" r="10"/><circle cx="186" cy="130" r="10"/>
+              <circle cx="206" cy="125" r="11"/>
+              <path d="M212 116 C 218 104, 226 98, 234 96"/>
+              <path d="M216 121 C 226 114, 236 112, 244 113"/>
+              <circle cx="210" cy="122" r="1.6" fill="#C4653C"/>
+            </g>
+          </g>
+
+          <g class="stage m-pupa" fill="none" stroke="#C4653C" stroke-width="1.6" stroke-linecap="round">
+            <g class="sway">
+              <path d="M160 12 L160 40" stroke-opacity=".5"/>
+              <path d="M160 40 C 186 60, 190 104, 160 140 C 130 104, 134 60, 160 40 Z"/>
+              <path d="M146 66 C 158 74, 168 76, 176 72" stroke-opacity=".45"/>
+              <path d="M144 86 C 158 94, 170 96, 178 90" stroke-opacity=".45"/>
+              <path d="M147 106 C 158 113, 168 114, 175 109" stroke-opacity=".45"/>
+            </g>
+          </g>
+
+          <g class="stage m-fly" fill="none" stroke="#C4653C" stroke-width="1.6" stroke-linecap="round">
+            <g class="lift">
+              <g class="wing">
+                <path d="M163 72 C 184 44, 222 28, 243 40 C 260 50, 250 82, 165 93 Z" fill="rgba(196,101,60,.10)"/>
+                <path d="M165 96 C 198 97, 224 108, 218 127 C 211 146, 179 133, 164 108 Z" fill="rgba(196,101,60,.07)"/>
+              </g>
+              <g class="wing" transform="translate(320,0) scale(-1,1)">
+                <path d="M163 72 C 184 44, 222 28, 243 40 C 260 50, 250 82, 165 93 Z" fill="rgba(196,101,60,.10)"/>
+                <path d="M165 96 C 198 97, 224 108, 218 127 C 211 146, 179 133, 164 108 Z" fill="rgba(196,101,60,.07)"/>
+              </g>
+              <path d="M160 60 C 154 63, 151 76, 151 91 C 151 108, 156 120, 160 124 C 164 120, 169 108, 169 91 C 169 76, 166 63, 160 60 Z" fill="rgba(196,101,60,.18)"/>
+              <path d="M157 64 C 148 50, 139 44, 130 42"/>
+              <path d="M163 64 C 172 50, 181 44, 190 42"/>
+            </g>
+          </g>
+        </svg>
+        <p class="r3 dim">Гусеница, куколка, бабочка. Ни один из 3 переходов не происходит сам собой.</p>
+      </div>
+  </div>
+</div>
+
+<!-- ═══════════ 04 МЕТОД ═══════════ -->
+<section class="light" id="method">
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">04 · Метод</p>
+      <h2 class="r1">3 слоя, которые нельзя разделить.</h2>
+      <p class="r3 lede dim">Большинство специалистов работают с одним слоем. Я работаю со всеми 3 одновременно – потому что изменение в одном меняет остальные. Это не эклектика: за этим стоят натуропатия, психосоматика и глубинная психология, собранные в одну рабочую систему.</p>
+    </div>
+
+    <div class="layers">
+      <div class="layer">
+        <p class="r4">Слой 1</p>
+        <p class="r2">Тело</p>
+        <p class="r3 dim">Тело – первый язык, на котором с вами говорит то, что происходит внутри. Усталость, бессонница, гормональные сбои, ЖКТ – это не поломки, это сигналы. Тело держит то, что вы не прожили и не назвали вслух.</p>
+        <p class="r3 dim">Я читаю эти сигналы и учу вас читать их самим. Там, где телу нужна физиологическая поддержка, подключаю натуропатические протоколы.</p>
+      </div>
+      <div class="layer">
+        <p class="r4">Слой 2</p>
+        <p class="r2">Психика</p>
+        <p class="r3 dim">Здесь живут автоматизмы. Почему вы снова соглашаетесь на меньшее. Почему сжимаетесь перед решением. Почему паралич приходит в самый важный момент.</p>
+        <p class="r3 dim">Я работаю с тем, что мешает прямо сейчас, а не с тем, откуда это пришло 30 лет назад. Цель – не «принять себя», а стать человеком, который собой владеет.</p>
+      </div>
+      <div class="layer">
+        <p class="r4">Слой 3</p>
+        <p class="r2">Душа</p>
+        <p class="r3 dim">Душа для меня – не абстракция и не эзотерика. Это конкретная система с конкретными потребностями, и говорит она через желания и нежелания, через «моё – не моё». Это ваш внутренний компас.</p>
+        <p class="r3 dim">Когда связь с ним теряется, теряется курс: вы годами калибруетесь по чужим траекториям, хотя у каждого свой маршрут. Моя работа – восстановить связь, через практику и телесный опыт, а не через ритуалы.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="head">
+      <h2 class="r1">4 шага. Одна логика.</h2>
+      <p class="r3 lede dim">Порядок здесь не декоративный: каждый следующий шаг не работает без предыдущего.</p>
+    </div>
+
+    <div class="rows">
+      <div class="row">
+        <p class="r4">Шаг 01</p>
+        <p class="r2 row-title">Слышать тело</p>
+        <div class="row-body">
+          <p class="r3">Снимаем компрессию, восстанавливаем контакт с ощущениями. Симптом перестаёт быть врагом и становится источником информации.</p>
+          <p class="r3 dim">Результат шага: на вопрос «как я себя чувствую» появляется первый внятный ответ.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="r4">Шаг 02</p>
+        <p class="r2 row-title">Знать себя</p>
+        <div class="row-body">
+          <p class="r3">Кто я без роли мамы, жены, правильной? Откуда сжимание и паралич? Здесь появляется саморегуляция – то, что и делает человека взрослым.</p>
+          <p class="r3 dim">Результат шага: первые решения, принятые из себя, а не из страха.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="r4">Шаг 03</p>
+        <p class="r2 row-title">Слышать душу</p>
+        <div class="row-body">
+          <p class="r3">Что вы на самом деле хотите – не «правильно», а ваше? Настраиваем компас. Предназначение нельзя вычислить заранее – его можно чувствовать изо дня в день.</p>
+          <p class="r3 dim">Результат шага: ориентир, который не зависит от чужого мнения.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="r4">Шаг 04</p>
+        <p class="r2 row-title">Жить своей жизнью</p>
+        <div class="row-body">
+          <p class="r3">Всё понятое и прочувствованное переносится в реальность. Отношения из силы. Решения без мучений. Способность оставаться собой под давлением.</p>
+          <p class="r3 dim">Результат шага: изменения, которые видны снаружи.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 05 ═══════════ -->
+<section>
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">05 · Как устроена работа</p>
+      <h2 class="r1">5 принципов, по которым я веду.</h2>
+      <p class="r3 lede dim">Это не стиль общения. Это то, из чего складывается результат.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <p class="r4">01</p>
+        <p class="r2">Я называю прямо</p>
+        <p class="r3 dim">Я вижу, что стоит за тем, с чем вы пришли, – и говорю это без смягчений. Взрослый человек выдерживает правду о себе.</p>
+      </div>
+      <div class="card">
+        <p class="r4">02</p>
+        <p class="r2">Только практика</p>
+        <p class="r3 dim">Не разговор о том, как изменить жизнь, а сама практика – телесная, психологическая или обе – прямо на встрече. Знание без опыта в теле не работает.</p>
+      </div>
+      <div class="card">
+        <p class="r4">03</p>
+        <p class="r2">Ответы вы находите сами</p>
+        <p class="r3 dim">Я создаю условия – выводы делаете вы. Чужой ответ остаётся чужим, свой становится частью вас. В этом и разница между зависимостью и взрослостью.</p>
+      </div>
+      <div class="card">
+        <p class="r4">04</p>
+        <p class="r2">Я ломаю автоматизмы</p>
+        <p class="r3 dim">Между встречами – задание. Простое по форме, точное по удару. Взросление происходит не на сессии, а в момент, когда вы делаете в жизни новый выбор вместо привычного.</p>
+      </div>
+      <div class="card">
+        <p class="r4">05</p>
+        <p class="r2">Мне нужно ваше решение</p>
+        <p class="r3 dim">Не «попробую» и не «посмотрим». Я работаю с теми, кто говорит «я выбираю это». Взять ответственность за свой рост – это и есть первый взрослый шаг.</p>
+      </div>
+      <div class="card">
+        <p class="r4">Контракт</p>
+        <p class="r2">Что берёт на себя каждая сторона</p>
+        <p class="r3 dim">Вы берёте ответственность за рост, я – за процесс. Я никого не тяну и не уговариваю: это было бы неуважением к вам. Но тех, кто выбрал, веду без компромиссов.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+    <p class="r3 lede dim">Мой стиль – это не тихая поддержка. Я буду оспаривать то, что вам не помогает. Если пришли жалеть себя – перенаправлю, с уважением, но твёрдо. Если пришли меняться – буду рядом полностью.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 06 ═══════════ -->
+<section class="light">
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">06 · Пара и семья</p>
+      <h2 class="r1">Взрослость проверяется там, где рядом другой человек.</h2>
+      <p class="r3 lede dim">Ко мне почти никогда не приходят «просто за парной терапией». Приходит один – а через какое-то время появляется партнёр, потом взрослеющие дети. Это не случайность: когда меняется один человек в системе, система обязана перестроиться. Метод остаётся тем же – тело, психика, душа, – меняется только количество людей в комнате.</p>
+    </div>
+
+    <div class="cards cards-2">
+      <div class="card">
+        <p class="r4">Формат</p>
+        <p class="r2">Пара</p>
+        <p class="r3 dim">Работаю и вместе, и с каждым отдельно. Задача – не «помирить», а вернуть обоим контакт с собой: большая часть претензий друг к другу оказывается непрожитым внутри каждого. Специализацию по работе с парами я защищала на реальной паре, которую вела год.</p>
+      </div>
+      <div class="card">
+        <p class="r4">Формат</p>
+        <p class="r2">Родитель</p>
+        <p class="r3 dim">В семье состояние матери – несущая конструкция. Дети считывают не то, что вы говорите, а то, что вы делаете: как вы обходитесь с собой, как принимаете решения, как проживаете чувства. Работа с собой здесь и есть работа с ребёнком.</p>
+      </div>
+      <div class="card">
+        <p class="r4">Формат</p>
+        <p class="r2">Взрослеющие дети</p>
+        <p class="r3 dim">Отдельная зона, в которую меня привели сами клиенты: подростки и молодые взрослые на переходе – школа, университет, первая самостоятельность. Там ломается больше всего и там же быстрее всего получается.</p>
+      </div>
+      <div class="card">
+        <p class="r4">Формат</p>
+        <p class="r2">Семейная система и семейное дело</p>
+        <p class="r3 dim">Династии, наследники, совместный бизнес. Здесь к психологической работе добавляется практическая: где нужно, подключаю юристов и консультантов, чтобы решение можно было не только принять, но и оформить.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 07 ═══════════ -->
+<section>
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">07 · Кто я</p>
+      <h2 class="r1">Я продукт своего подхода.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="narrow stack">
+      <p class="r3">Я пошла изучать психологию, потому что не нашла достаточно хорошего психолога. Стала натуропатом, потому что поняла: тело и психика работают вместе, а не по очереди. Пришла к душе – потому что без неё всё остальное оказалось половиной ответа.</p>
+      <p class="r3">Я не называю себя психологом. Классическая психология не работает с телом, коучинг не работает с душой, а духовные практики не дают инструментов для жизни в понедельник утром. Я работаю со всем сразу – потому что именно там живут настоящие изменения.</p>
+      <p class="r3">Всё, чему я учу, я прошла сама. Между тем, что я говорю, и тем, как я живу, нет дистанции. И я не работаю со всеми: только со здоровыми взрослыми людьми, которые берут ответственность за свой рост.</p>
+      <p class="r3 dim">Живу в Италии. Веду на итальянском и русском – это 2 разные аудитории с разной болью, и я говорю с каждой на её языке.</p>
+      </div>
+
+      <div class="ph ph-portrait">
+        <p class="r4">ФОТО</p>
+        <p class="r3 dim">Марина в работе: студия, приём, группа. Вертикальный 4:5.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+    <p class="r4">Образование и практика</p>
+    <div class="creds">
+      <div class="cred">
+        <p class="r2">Натуропатия</p>
+        <p class="r3 dim">4 года обучения в Италии плюс специализации. Холистический подход: человек рассматривается целиком – физиология, эмоции, психика, социальное.</p>
+      </div>
+      <div class="cred">
+        <p class="r2">Психосоматика</p>
+        <p class="r3 dim">Итальянский институт психосоматики – школа, существующая с 1975 года, с корнями в психоанализе и юнгианском методе.</p>
+      </div>
+      <div class="cred">
+        <p class="r2">Психология</p>
+        <p class="r3 dim">Университетское образование, доктор психологии. Дипломная работа по нейрофизиологии: связь сна и нейродегенеративных заболеваний.</p>
+      </div>
+      <div class="cred">
+        <p class="r2">Глубинная психология</p>
+        <p class="r3 dim">Основные инструменты – Юнг и архетипическая психология Хиллмана. Плюс отдельные техники из гештальта, КПТ и схема-терапии, изученные у авторов метода.</p>
+      </div>
+      <div class="cred">
+        <p class="r2">Работа с парами</p>
+        <p class="r3 dim">Отдельная специализация по коучингу и терапии пар.</p>
+      </div>
+      <div class="cred">
+        <p class="r2">Практика</p>
+        <p class="r3 dim">С 2011 года. 3 студии в Италии на старте, тысячи часов приёма, любой запрос – от подростков до династий. Италия, Россия, международные клиенты.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 08 ═══════════ -->
+<section>
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">08 · Что меняется</p>
+      <h2 class="r1">По чему вы поймёте, что работа идёт.</h2>
+    </div>
+
+    <div class="rows">
+      <div class="row">
+        <p class="r4">01</p>
+        <p class="r2 row-title">Тело перестаёт кричать</p>
+        <div class="row-body"><p class="r3 dim">Симптомы, которые не уходили годами, теряют остроту или исчезают. Не потому что мы их лечили, а потому что убрали причину.</p></div>
+      </div>
+      <div class="row">
+        <p class="r4">02</p>
+        <p class="r2 row-title">Приходит ясность</p>
+        <div class="row-body"><p class="r3 dim">«Я наконец понимаю, чего хочу» – и это не метафора, а ощущение в теле. Впервые без оглядки на то, что «правильно».</p></div>
+      </div>
+      <div class="row">
+        <p class="r4">03</p>
+        <p class="r2 row-title">Решения принимаются иначе</p>
+        <div class="row-body"><p class="r3 dim">Не из страха и не из ожидания одобрения. Без того паралича, который раньше съедал недели.</p></div>
+      </div>
+      <div class="row">
+        <p class="r4">04</p>
+        <p class="r2 row-title">Меняется то, что вокруг</p>
+        <div class="row-body"><p class="r3 dim">Отношения, работа, дом. Не потому что мир стал другим, а потому что вы перестали соглашаться на меньшее, чем ваше.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 09 ═══════════ -->
+<section class="light">
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">09 · Форматы</p>
+      <h2 class="r1">Как со мной можно работать.</h2>
+      <p class="r3 lede dim">Вход в любой формат – через первый разговор. Он нужен обоим: мне – чтобы понять, ваша ли это задача и моя ли она, вам – чтобы почувствовать, ваш ли я человек.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <p class="r4">Индивидуально</p>
+        <p class="r2">Длительное сопровождение</p>
+        <p class="r3 dim">Полное ведение: тело, психика, смыслы – всё в одних руках. Формат подбирается под задачу: регулярные встречи или редкие, но длинные погружения на полдня.</p>
+        <p class="r3 tbd">Срок и стоимость – уточнить</p>
+      </div>
+      <div class="card">
+        <p class="r4">Вдвоём</p>
+        <p class="r2">Работа с парой</p>
+        <p class="r3 dim">Совместные встречи плюс индивидуальные с каждым. Подходит и когда «всё вроде хорошо, но», и когда решение уже назрело.</p>
+        <p class="r3 tbd">Срок и стоимость – уточнить</p>
+      </div>
+      <div class="card">
+        <p class="r4">Группа</p>
+        <p class="r2">Закрытый день</p>
+        <p class="r3 dim">Камерная встреча: теория и практика в один насыщенный день, участники отбираются лично. Самый мягкий способ познакомиться с методом.</p>
+        <p class="r3 tbd">Даты и формат – уточнить</p>
+      </div>
+    </div>
+
+    <div class="ph ph-wide">
+      <p class="r4">ФОТО</p>
+      <p class="r3 dim">Студия: пространство, где проходят встречи. Горизонтальный 16:9.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 10 ═══════════ -->
+<section>
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">10 · Что говорят</p>
+      <h2 class="r1">Лучше – словами тех, кто уже прошёл этот путь.</h2>
+    </div>
+    <div class="quotes">
+      <p class="r3 quote">«Она говорит то, что я думаю. Прихожу – и мне прям страшно. Потому что она видит.»</p>
+      <p class="r3 quote">«Сначала казалась жёсткой. Потом я поняла – это любовь. Та, которой почти не бывает.»</p>
+      <p class="r3 quote">«Мы работали с телом. Изменилось – всё.»</p>
+      <p class="r3 quote">«После первой встречи вышла с облегчением, которого не было много лет. Как будто наконец кто-то меня услышал.»</p>
+      <p class="r3 quote">«Она не даёт тебе оставаться маленькой. Это и пугает – и именно за этим идёшь.»</p>
+      <p class="r3 quote">«Я не понимала, чего боялась больше: что она меня увидит – или что я сама себя увижу.»</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 11 ═══════════ -->
+<section id="contact">
+  <div class="wrap rise">
+    <div class="head">
+      <p class="r4">11 · Начать</p>
+      <h2 class="r1">Если чувствуете, что это про вас – напишите.</h2>
+      <p class="r3 lede dim">Первый разговор нужен, чтобы понять, подходим ли мы друг другу. Готовить ничего не нужно. Приходите такой, какая есть.</p>
+    </div>
+
+    <p class="r3 tbd">Сюда встанет прямая ссылка на Telegram или WhatsApp</p>
+
+    <div class="contact-grid">
+      <div class="stack">
+        <p class="r4">Telegram</p>
+        <p class="r3 tbd">указать ссылку</p>
+      </div>
+      <div class="stack">
+        <p class="r4">WhatsApp</p>
+        <p class="r3 tbd">указать номер</p>
+      </div>
+      <div class="stack">
+        <p class="r4">Email</p>
+        <p class="r3 tbd">указать адрес</p>
+      </div>
+      <div class="stack">
+        <p class="r4">Языки работы</p>
+        <p class="r3 dim">Итальянский, русский</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+    <p class="r3 dim">Я работаю не со всеми. Но если это ваше – вы это почувствуете.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <p class="r4">Марина Кулич</p>
+    <nav class="lang" aria-label="Язык">
+      <a href="../" hreflang="it" lang="it">IT</a>
+      <span class="on" aria-current="true">RU</span>
+    </nav>
+    <p class="r4">© 2026</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar = document.getElementById('topbar');
+  var onScroll = function(){
+    if (window.scrollY > window.innerHeight * 0.7) bar.classList.add('show');
+    else bar.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  var blocks = document.querySelectorAll('.rise');
+  if (reduce || !('IntersectionObserver' in window)) {
+    blocks.forEach(function(b){ b.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:0.06});
+  blocks.forEach(function(b){ io.observe(b); });
+})();
+</script>
+
+</body>
+</html>
