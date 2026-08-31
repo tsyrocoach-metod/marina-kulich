@@ -146,6 +146,25 @@ main{position:relative;z-index:1}
 .card:hover{transform:translateY(-5px);border-color:var(--acc)}
 .cards:hover .card:not(:hover){opacity:.5}
 
+/* ── карусель шагов ── */
+.carousel{position:relative}
+.steps{display:grid;grid-auto-flow:column;grid-auto-columns:84%;gap:1.2rem;
+  overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+  padding:.3rem .2rem 1.2rem;scrollbar-width:none;-ms-overflow-style:none}
+.steps::-webkit-scrollbar{display:none}
+@media(min-width:700px){.steps{grid-auto-columns:46%}}
+@media(min-width:1100px){.steps{grid-auto-columns:30%}}
+.step{scroll-snap-align:start;border:1px solid var(--line);border-radius:16px;background:var(--card);
+  padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;transition:border-color .35s var(--ease)}
+.step:hover{border-color:var(--acc)}
+.car-nav{display:flex;gap:.6rem;align-items:center;margin-top:.4rem}
+.car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;
+  color:var(--fg);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s,border-color .2s,opacity .2s}
+.car-btn:hover{border-color:var(--acc);background:var(--card)}
+.car-btn[disabled]{opacity:.3;cursor:default}
+.car-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
 /* ── три слоя ── */
 .layers{display:grid;grid-template-columns:1fr;gap:0}
 .layer{padding:1.9rem 0;border-top:1px solid var(--line)}
@@ -266,7 +285,7 @@ html:not(.js) .rv{opacity:1;transform:none}
 <section class="sec hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="r4 rv">Italia · in studio e online</p>
+      <p class="r4 rv">Marina Kulich</p>
       <h1 class="r1 rv">L'avvocato della tua anima – e della tua maturità.</h1>
       <p class="r3 sub dim rv">Lavoro con persone che da fuori funzionano e dentro sentono di vivere una vita che non è la loro. Ti accompagno attraverso il corpo, la psiche e l'anima. Individualmente, in coppia e in famiglia.</p>
       <div class="hero-foot rv">
@@ -288,29 +307,26 @@ html:not(.js) .rv{opacity:1;transform:none}
 <section class="sec sec--dark">
   <div class="wrap">
     <div class="head rv"><p class="r4">02 · Perché finora non ha funzionato</p><h2 class="r1">Puoi occupartene per anni – e restare fermo nello stesso punto.</h2><p class="r3 lede dim">Non è un tuo problema. È un problema di approccio.</p></div>
-    <div class="rv"><div class="rows">
-<div class="row">
+    <div class="cards cards-2">
+<div class="card rv">
 <p class="r4">01</p>
-<p class="r2 row-title">Meditazione e pratiche spirituali</p>
-<div class="row-body">
+<p class="r2">Meditazione e pratiche spirituali</p>
 <p class="r3">Danno uno stato, non danno la via che porta da quello stato alla vita.</p>
 <p class="r3 dim">Torni a casa con «ho capito tutto» e dopo 3 giorni è di nuovo come prima. Capire con la testa non equivale a cambiare nella vita.</p>
-</div></div>
-<div class="row">
+</div>
+<div class="card rv">
 <p class="r4">02</p>
-<p class="r2 row-title">Psicologia classica</p>
-<div class="row-body">
+<p class="r2">Psicologia classica</p>
 <p class="r3">Lavora con la testa. Ma la vita non cambia lì.</p>
 <p class="r3 dim">Capisci da dove viene. Intanto il corpo continua a tremare e le decisioni continuano a non arrivare.</p>
-</div></div>
-<div class="row">
+</div>
+<div class="card rv">
 <p class="r4">03</p>
-<p class="r2 row-title">Maestri spirituali</p>
-<div class="row-body">
+<p class="r2">Maestri spirituali</p>
 <p class="r3">Bello. Ma non si capisce cosa farne lunedì mattina.</p>
 <p class="r3 dim">Risveglio, missione, luce. E poi di nuovo la paralisi davanti a una decisione, perché tra l'ispirazione e la vita reale manca il ponte.</p>
-</div></div>
-</div></div>
+</div>
+</div>
     <hr class="rule"><p class="r3 lede dim rv">Il cambiamento avviene dove si incontrano 3 cose: un corpo finalmente ascoltato, una conoscenza reale di sé e le azioni che ne nascono. Togline una qualsiasi e tutto resta un discorso sul cambiamento.</p>
   </div>
 </section>
@@ -332,36 +348,7 @@ html:not(.js) .rv{opacity:1;transform:none}
     <div class="layers"><div class="layer rv"><p class="r4">Strato 1</p><p class="r2">Corpo</p><p class="r3 dim">Il corpo è la prima lingua con cui ti parla quello che accade dentro. Stanchezza, insonnia, squilibri ormonali, intestino: non sono guasti, sono segnali.</p><p class="r3 dim">Leggo questi segnali e insegno a te a leggerli. Dove il corpo ha bisogno di un sostegno fisiologico, intervengo con protocolli naturopatici.</p></div><div class="layer rv"><p class="r4">Strato 2</p><p class="r2">Psiche</p><p class="r3 dim">Qui vivono gli automatismi. Perché accetti di nuovo meno di quello che vali. Perché ti chiudi davanti a una decisione. Perché la paralisi arriva proprio nel momento più importante.</p><p class="r3 dim">Lavoro su ciò che ostacola adesso, non su ciò che è successo 30 anni fa. L'obiettivo non è «accettarsi», ma diventare una persona che possiede se stessa.</p></div><div class="layer rv"><p class="r4">Strato 3</p><p class="r2">Anima</p><p class="r3 dim">Per me l'anima non è un'astrazione e non è esoterismo: è un sistema concreto con bisogni concreti, e parla attraverso il «mio – non mio». È la tua bussola interna.</p><p class="r3 dim">Quando il collegamento si perde, si perde la rotta: passi anni a calibrarti su traiettorie altrui. Il mio lavoro è ristabilire quel collegamento, attraverso la pratica e l'esperienza corporea, non attraverso i rituali.</p></div></div>
     <hr class="rule">
     <div class="head rv"><h2 class="r1">4 passi. Una sola logica.</h2><p class="r3 lede dim">L'ordine non è decorativo: ogni passo non funziona senza il precedente.</p></div>
-    <div class="rv"><div class="rows">
-<div class="row">
-<p class="r4">Passo 01</p>
-<p class="r2 row-title">Ascoltare il corpo</p>
-<div class="row-body">
-<p class="r3">Togliamo la compressione e ripristiniamo il contatto con le sensazioni. Il sintomo smette di essere un nemico e diventa una fonte di informazione.</p>
-<p class="r3 dim">Risultato: alla domanda «come mi sento» arriva la prima risposta chiara.</p>
-</div></div>
-<div class="row">
-<p class="r4">Passo 02</p>
-<p class="r2 row-title">Conoscere se stessi</p>
-<div class="row-body">
-<p class="r3">Chi sono senza il ruolo di madre, di moglie, di persona per bene? Da dove arrivano la chiusura e la paralisi? Qui nasce l'autoregolazione, ed è questa che rende adulti.</p>
-<p class="r3 dim">Risultato: le prime decisioni prese da sé e non dalla paura.</p>
-</div></div>
-<div class="row">
-<p class="r4">Passo 03</p>
-<p class="r2 row-title">Ascoltare l'anima</p>
-<div class="row-body">
-<p class="r3">Cosa vuoi davvero – non ciò che è «giusto», ma il tuo? Tariamo la bussola. La propria strada non si calcola in anticipo: si sente giorno per giorno.</p>
-<p class="r3 dim">Risultato: un punto di riferimento che non dipende dal giudizio degli altri.</p>
-</div></div>
-<div class="row">
-<p class="r4">Passo 04</p>
-<p class="r2 row-title">Vivere la propria vita</p>
-<div class="row-body">
-<p class="r3">Tutto ciò che è stato capito e sentito passa nella realtà. Relazioni che nascono dalla forza. Decisioni senza tormento. La capacità di restare se stessi sotto pressione.</p>
-<p class="r3 dim">Risultato: cambiamenti che si vedono anche da fuori.</p>
-</div></div>
-</div></div>
+    <div class="carousel rv"><div class="steps"><div class="step"><p class="r4">Passo 01</p><p class="r2">Ascoltare il corpo</p><p class="r3">Togliamo la compressione e ripristiniamo il contatto con le sensazioni. Il sintomo smette di essere un nemico e diventa una fonte di informazione.</p><p class="r3 dim">Risultato: alla domanda «come mi sento» arriva la prima risposta chiara.</p></div><div class="step"><p class="r4">Passo 02</p><p class="r2">Conoscere se stessi</p><p class="r3">Chi sono senza il ruolo di madre, di moglie, di persona per bene? Da dove arrivano la chiusura e la paralisi? Qui nasce l'autoregolazione, ed è questa che rende adulti.</p><p class="r3 dim">Risultato: le prime decisioni prese da sé e non dalla paura.</p></div><div class="step"><p class="r4">Passo 03</p><p class="r2">Ascoltare l'anima</p><p class="r3">Cosa vuoi davvero – non ciò che è «giusto», ma il tuo? Tariamo la bussola. La propria strada non si calcola in anticipo: si sente giorno per giorno.</p><p class="r3 dim">Risultato: un punto di riferimento che non dipende dal giudizio degli altri.</p></div><div class="step"><p class="r4">Passo 04</p><p class="r2">Vivere la propria vita</p><p class="r3">Tutto ciò che è stato capito e sentito passa nella realtà. Relazioni che nascono dalla forza. Decisioni senza tormento. La capacità di restare se stessi sotto pressione.</p><p class="r3 dim">Risultato: cambiamenti che si vedono anche da fuori.</p></div></div><div class="car-nav"><button class="car-btn" type="button" data-dir="-1" aria-label="Passo precedente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="car-btn" type="button" data-dir="1" aria-label="Passo successivo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
   </div>
 </section>
 <section class="sec">
@@ -547,6 +534,28 @@ document.documentElement.className += ' js';
     var max = document.body.scrollHeight - innerHeight;
     bar.style.width = (max > 0 ? (scrollY / max * 100) : 0) + '%';
   }, {passive:true});
+
+  /* карусели */
+  document.querySelectorAll('.carousel').forEach(function(c){
+    var track = c.querySelector('.steps');
+    var btns  = c.querySelectorAll('.car-btn');
+    function stepWidth(){
+      var el = track.firstElementChild;
+      return el ? el.getBoundingClientRect().width + 19 : 320;
+    }
+    function refresh(){
+      btns[0].disabled = track.scrollLeft < 8;
+      btns[1].disabled = track.scrollLeft > track.scrollWidth - track.clientWidth - 8;
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        track.scrollBy({left: stepWidth() * (+b.dataset.dir), behavior:'smooth'});
+      });
+    });
+    track.addEventListener('scroll', refresh, {passive:true});
+    addEventListener('resize', refresh, {passive:true});
+    refresh();
+  });
 
   if (reduce) return;
 

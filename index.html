@@ -146,6 +146,25 @@ main{position:relative;z-index:1}
 .card:hover{transform:translateY(-5px);border-color:var(--acc)}
 .cards:hover .card:not(:hover){opacity:.5}
 
+/* ── карусель шагов ── */
+.carousel{position:relative}
+.steps{display:grid;grid-auto-flow:column;grid-auto-columns:84%;gap:1.2rem;
+  overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+  padding:.3rem .2rem 1.2rem;scrollbar-width:none;-ms-overflow-style:none}
+.steps::-webkit-scrollbar{display:none}
+@media(min-width:700px){.steps{grid-auto-columns:46%}}
+@media(min-width:1100px){.steps{grid-auto-columns:30%}}
+.step{scroll-snap-align:start;border:1px solid var(--line);border-radius:16px;background:var(--card);
+  padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;transition:border-color .35s var(--ease)}
+.step:hover{border-color:var(--acc)}
+.car-nav{display:flex;gap:.6rem;align-items:center;margin-top:.4rem}
+.car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;
+  color:var(--fg);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s,border-color .2s,opacity .2s}
+.car-btn:hover{border-color:var(--acc);background:var(--card)}
+.car-btn[disabled]{opacity:.3;cursor:default}
+.car-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
 /* ── три слоя ── */
 .layers{display:grid;grid-template-columns:1fr;gap:0}
 .layer{padding:1.9rem 0;border-top:1px solid var(--line)}
@@ -266,11 +285,11 @@ html:not(.js) .rv{opacity:1;transform:none}
 <section class="sec hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="r4 rv">Италия · офлайн и онлайн</p>
+      <p class="r4 rv">Марина Кулич</p>
       <h1 class="r1 rv">Адвокат вашей души – и вашей взрослости.</h1>
       <p class="r3 sub dim rv">Я работаю с людьми, у которых снаружи всё более-менее в порядке, а внутри – ощущение, что живёшь чуть мимо своей жизни. Веду через тело, психику и душу. Индивидуально, с парой и с семьёй.</p>
       <div class="hero-foot rv">
-        <a class="cta" href="#kontakt">Написать Марине</a>
+        <a class="cta" href="#kontakt">Написать мне</a>
         <a class="cta cta-ghost" href="#metod">Как я работаю</a>
       </div>
       <div class="hero-foot"><div class="scrollhint"><span class="bar"></span>Листайте</div></div>
@@ -288,29 +307,26 @@ html:not(.js) .rv{opacity:1;transform:none}
 <section class="sec sec--dark">
   <div class="wrap">
     <div class="head rv"><p class="r4">02 · Почему прошлые попытки не сработали</p><h2 class="r1">Вы можете годами этим заниматься – и оставаться на месте.</h2><p class="r3 lede dim">Это не ваша проблема. Это проблема подхода.</p></div>
-    <div class="rv"><div class="rows">
-<div class="row">
+    <div class="cards cards-2">
+<div class="card rv">
 <p class="r4">01</p>
-<p class="r2 row-title">Медитации и духовные практики</p>
-<div class="row-body">
+<p class="r2">Медитации и духовные практики</p>
 <p class="r3">Дают состояние – но не дают выхода из состояния в жизнь.</p>
 <p class="r3 dim">Возвращаетесь с «я всё поняла» – и через 3 дня всё по-прежнему. Понимание в голове не равно изменению в жизни.</p>
-</div></div>
-<div class="row">
+</div>
+<div class="card rv">
 <p class="r4">02</p>
-<p class="r2 row-title">Классическая психология</p>
-<div class="row-body">
+<p class="r2">Классическая психология</p>
 <p class="r3">Работает с головой. А жизнь меняется не там.</p>
 <p class="r3 dim">Вы понимаете, откуда это идёт. Но тело по-прежнему трусит, а решения по-прежнему не принимаются.</p>
-</div></div>
-<div class="row">
+</div>
+<div class="card rv">
 <p class="r4">03</p>
-<p class="r2 row-title">Духовные наставники</p>
-<div class="row-body">
+<p class="r2">Духовные наставники</p>
 <p class="r3">Красиво – но непонятно, что делать в понедельник.</p>
 <p class="r3 dim">Пробуждение, предназначение, свет. А потом снова паралич перед решением, потому что между вдохновением и реальной жизнью нет моста.</p>
-</div></div>
-</div></div>
+</div>
+</div>
     <hr class="rule"><p class="r3 lede dim rv">Изменения происходят там, где встречаются 3 вещи: тело, которое наконец услышали, знание себя – и действия, которые из этого вырастают. Уберите любое из трёх, и всё останется разговором о переменах.</p>
   </div>
 </section>
@@ -332,36 +348,7 @@ html:not(.js) .rv{opacity:1;transform:none}
     <div class="layers"><div class="layer rv"><p class="r4">Слой 1</p><p class="r2">Тело</p><p class="r3 dim">Тело – первый язык, на котором с вами говорит то, что происходит внутри. Усталость, бессонница, гормональные сбои, ЖКТ – это не поломки, это сигналы.</p><p class="r3 dim">Я читаю эти сигналы и учу вас читать их самим. Там, где телу нужна физиологическая поддержка, подключаю натуропатические протоколы.</p></div><div class="layer rv"><p class="r4">Слой 2</p><p class="r2">Психика</p><p class="r3 dim">Здесь живут автоматизмы. Почему вы снова соглашаетесь на меньшее. Почему сжимаетесь перед решением. Почему паралич приходит в самый важный момент.</p><p class="r3 dim">Я работаю с тем, что мешает прямо сейчас, а не с тем, откуда это пришло 30 лет назад. Цель – не «принять себя», а стать человеком, который собой владеет.</p></div><div class="layer rv"><p class="r4">Слой 3</p><p class="r2">Душа</p><p class="r3 dim">Душа для меня – не абстракция и не эзотерика. Это конкретная система с конкретными потребностями, и говорит она через «моё – не моё». Это ваш внутренний компас.</p><p class="r3 dim">Когда связь с ним теряется, теряется курс: вы годами калибруетесь по чужим траекториям. Моя работа – восстановить связь, через практику и телесный опыт, а не через ритуалы.</p></div></div>
     <hr class="rule">
     <div class="head rv"><h2 class="r1">4 шага. Одна логика.</h2><p class="r3 lede dim">Порядок здесь не декоративный: каждый следующий шаг не работает без предыдущего.</p></div>
-    <div class="rv"><div class="rows">
-<div class="row">
-<p class="r4">Шаг 01</p>
-<p class="r2 row-title">Слышать тело</p>
-<div class="row-body">
-<p class="r3">Снимаем компрессию, восстанавливаем контакт с ощущениями. Симптом перестаёт быть врагом и становится источником информации.</p>
-<p class="r3 dim">Результат шага: на вопрос «как я себя чувствую» появляется первый внятный ответ.</p>
-</div></div>
-<div class="row">
-<p class="r4">Шаг 02</p>
-<p class="r2 row-title">Знать себя</p>
-<div class="row-body">
-<p class="r3">Кто я без роли мамы, жены, правильной? Откуда сжимание и паралич? Здесь появляется саморегуляция – то, что и делает человека взрослым.</p>
-<p class="r3 dim">Результат шага: первые решения, принятые из себя, а не из страха.</p>
-</div></div>
-<div class="row">
-<p class="r4">Шаг 03</p>
-<p class="r2 row-title">Слышать душу</p>
-<div class="row-body">
-<p class="r3">Что вы на самом деле хотите – не «правильно», а ваше? Настраиваем компас. Предназначение нельзя вычислить заранее – его можно чувствовать изо дня в день.</p>
-<p class="r3 dim">Результат шага: ориентир, который не зависит от чужого мнения.</p>
-</div></div>
-<div class="row">
-<p class="r4">Шаг 04</p>
-<p class="r2 row-title">Жить своей жизнью</p>
-<div class="row-body">
-<p class="r3">Всё понятое и прочувствованное переносится в реальность. Отношения из силы. Решения без мучений. Способность оставаться собой под давлением.</p>
-<p class="r3 dim">Результат шага: изменения, которые видны снаружи.</p>
-</div></div>
-</div></div>
+    <div class="carousel rv"><div class="steps"><div class="step"><p class="r4">Шаг 01</p><p class="r2">Слышать тело</p><p class="r3">Снимаем компрессию, восстанавливаем контакт с ощущениями. Симптом перестаёт быть врагом и становится источником информации.</p><p class="r3 dim">Результат шага: на вопрос «как я себя чувствую» появляется первый внятный ответ.</p></div><div class="step"><p class="r4">Шаг 02</p><p class="r2">Знать себя</p><p class="r3">Кто я без роли мамы, жены, правильной? Откуда сжимание и паралич? Здесь появляется саморегуляция – то, что и делает человека взрослым.</p><p class="r3 dim">Результат шага: первые решения, принятые из себя, а не из страха.</p></div><div class="step"><p class="r4">Шаг 03</p><p class="r2">Слышать душу</p><p class="r3">Что вы на самом деле хотите – не «правильно», а ваше? Настраиваем компас. Предназначение нельзя вычислить заранее – его можно чувствовать изо дня в день.</p><p class="r3 dim">Результат шага: ориентир, который не зависит от чужого мнения.</p></div><div class="step"><p class="r4">Шаг 04</p><p class="r2">Жить своей жизнью</p><p class="r3">Всё понятое и прочувствованное переносится в реальность. Отношения из силы. Решения без мучений. Способность оставаться собой под давлением.</p><p class="r3 dim">Результат шага: изменения, которые видны снаружи.</p></div></div><div class="car-nav"><button class="car-btn" type="button" data-dir="-1" aria-label="Предыдущий шаг"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="car-btn" type="button" data-dir="1" aria-label="Следующий шаг"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
   </div>
 </section>
 <section class="sec">
@@ -547,6 +534,28 @@ document.documentElement.className += ' js';
     var max = document.body.scrollHeight - innerHeight;
     bar.style.width = (max > 0 ? (scrollY / max * 100) : 0) + '%';
   }, {passive:true});
+
+  /* карусели */
+  document.querySelectorAll('.carousel').forEach(function(c){
+    var track = c.querySelector('.steps');
+    var btns  = c.querySelectorAll('.car-btn');
+    function stepWidth(){
+      var el = track.firstElementChild;
+      return el ? el.getBoundingClientRect().width + 19 : 320;
+    }
+    function refresh(){
+      btns[0].disabled = track.scrollLeft < 8;
+      btns[1].disabled = track.scrollLeft > track.scrollWidth - track.clientWidth - 8;
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        track.scrollBy({left: stepWidth() * (+b.dataset.dir), behavior:'smooth'});
+      });
+    });
+    track.addEventListener('scroll', refresh, {passive:true});
+    addEventListener('resize', refresh, {passive:true});
+    refresh();
+  });
 
   if (reduce) return;
 
