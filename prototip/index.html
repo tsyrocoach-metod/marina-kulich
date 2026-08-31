@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Марина Кулич – прототип «Превращение»</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Onest',-apple-system,sans-serif;
+  background:#04050A;color:#E8EBF5;line-height:1.62;
+  overflow-x:hidden;
+}
+em,i{font-style:normal}
+a{cursor:pointer}
+:focus-visible{outline:2px solid #4ADFCB;outline-offset:4px}
+
+/* ───── живой фон ───── */
+#field{position:fixed;inset:0;z-index:1;pointer-events:none}
+#tint{position:fixed;inset:0;z-index:0;pointer-events:none;transition:background .6s linear}
+#light{
+  position:fixed;top:0;left:0;width:46vmax;height:46vmax;z-index:2;pointer-events:none;
+  margin:-23vmax 0 0 -23vmax;border-radius:50%;opacity:0;
+  background:radial-gradient(circle,rgba(120,170,255,.16),rgba(120,170,255,0) 62%);
+  transition:opacity .5s;
+}
+@media(hover:hover) and (pointer:fine){#light{opacity:1}}
+
+main{position:relative;z-index:3}
+
+/* ───── общая типографика ───── */
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,6vw,5rem)}
+.screen .wrap{position:relative}
+.screen .wrap::before{
+  content:"";position:absolute;inset:-8vh -12% -8vh -14%;z-index:-1;pointer-events:none;
+  background:radial-gradient(60% 55% at 22% 50%, rgba(4,5,10,.86), rgba(4,5,10,0) 74%);
+}
+.narrow{max-width:660px}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#4ADFCB}
+h1,h2{font-family:'Playfair Display',serif;font-weight:400;line-height:1.08;letter-spacing:-.02em}
+h1{font-size:clamp(2.2rem,6vw,4.6rem)}
+h2{font-size:clamp(1.9rem,4.6vw,3.4rem)}
+p{font-size:clamp(1rem,1.2vw,1.1rem)}
+.dim{color:#8E97B8}
+
+/* ───── экраны ───── */
+.screen{min-height:100svh;display:flex;align-items:center;padding:14vh 0}
+.screen.tall{min-height:170svh}
+
+/* обложка */
+.hero .eyebrow{margin-bottom:1.8rem}
+.hero h1{max-width:16ch;margin-bottom:1.5rem}
+.hero .sub{max-width:44ch;margin-bottom:2.6rem}
+.scrollhint{display:flex;align-items:center;gap:.8rem;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#6C7699}
+.scrollhint .bar{width:70px;height:1px;background:#3A4364;position:relative;overflow:hidden}
+.scrollhint .bar::after{content:"";position:absolute;inset:0;width:34%;background:#4ADFCB;animation:hint 2.6s ease-in-out infinite}
+@keyframes hint{0%{transform:translateX(-110%)}60%,100%{transform:translateX(320%)}}
+
+/* реплики клиентов — проявляются по одной */
+.voices{display:grid;gap:1px;background:rgba(232,235,245,.1);border:1px solid rgba(232,235,245,.1)}
+@media(min-width:640px){.voices{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.voices{grid-template-columns:repeat(3,1fr)}}
+.voice{background:rgba(4,5,10,.72);padding:1.6rem 1.4rem;backdrop-filter:blur(6px)}
+.voice::before{content:"«";color:#4ADFCB;display:block;margin-bottom:.25rem}
+
+/* куколка — самая узкая точка страницы */
+.cocoon .inner{max-width:560px}
+.cocoon h2{margin-bottom:1.6rem}
+.cocoon p{margin-bottom:1rem}
+
+/* три слоя */
+.layers{display:grid;gap:1.4rem;margin-top:3rem}
+@media(min-width:900px){.layers{grid-template-columns:repeat(3,1fr);gap:2rem}}
+.layer{
+  padding:1.7rem 1.5rem;border-radius:18px;
+  background:rgba(232,235,245,.045);border:1px solid rgba(232,235,245,.12);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  transition:transform .45s cubic-bezier(.22,.61,.36,1), border-color .45s, background .45s;
+}
+.layer:hover{transform:translateY(-6px);border-color:rgba(74,223,203,.55);background:rgba(232,235,245,.075)}
+.layer .n{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#4ADFCB;margin-bottom:.7rem}
+.layer h3{font-family:'Playfair Display',serif;font-weight:500;font-size:1.5rem;margin-bottom:.7rem}
+.layer p{color:#8E97B8;font-size:.99rem}
+.layers:hover .layer:not(:hover){opacity:.45}
+
+/* финал */
+.btn{
+  display:inline-block;padding:1rem 2rem;border-radius:100px;
+  background:#4ADFCB;color:#03151A;text-decoration:none;font-weight:600;
+  transition:transform .2s, box-shadow .3s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(74,223,203,.28)}
+
+/* появление */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.js .rv.on{opacity:1;transform:none}
+html:not(.js) .rv{opacity:1;transform:none}
+.rv:nth-child(2){transition-delay:.09s}
+.rv:nth-child(3){transition-delay:.18s}
+.rv:nth-child(4){transition-delay:.27s}
+
+/* заметка о прототипе */
+.note{background:#0E1120;border-top:1px solid rgba(232,235,245,.14);padding:clamp(2rem,6vw,4rem) 0}
+.note h2{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:1rem}
+.note p{color:#8E97B8;max-width:60ch;margin-bottom:.7rem}
+.note a{color:#4ADFCB}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  .rv{opacity:1 !important;transform:none !important}
+  #light{display:none}
+}
+</style>
+</head>
+<body>
+
+<canvas id="field"></canvas>
+<div id="tint"></div>
+<div id="light"></div>
+
+<main>
+
+  <!-- ═════ 1. ХАОС ═════ -->
+  <section class="screen hero">
+    <div class="wrap">
+      <p class="eyebrow rv">Марина Кулич · Италия</p>
+      <h1 class="rv">Адвокат вашей души – и вашей взрослости.</h1>
+      <p class="sub dim rv">Я работаю с людьми, у которых снаружи всё более-менее в порядке, а внутри – ощущение, что живёшь чуть мимо своей жизни.</p>
+      <div class="scrollhint rv"><span class="bar"></span> Листайте</div>
+    </div>
+  </section>
+
+  <!-- ═════ 2. УЗНАВАНИЕ ═════ -->
+  <section class="screen">
+    <div class="wrap">
+      <p class="eyebrow rv">01 · С чем приходят</p>
+      <h2 class="rv narrow" style="margin:1rem 0 2.4rem">Люди приходят ко мне вот этими словами.</h2>
+      <div class="voices rv">
+        <p class="voice">Я не могу спать. Тело как будто сжато в кулак, и это не проходит.»</p>
+        <p class="voice">Я заложник ситуации. Понимаю, что она себя изжила, но не знаю, как выйти.»</p>
+        <p class="voice">Живу не в своей жизни. Жизнь проходит, а я как белка в колесе.»</p>
+        <p class="voice">Хочу – но боюсь. Не знаю, смогу ли. Не знаю, достойна ли.»</p>
+        <p class="voice">Не знаю, чего хочу. Иногда кажется, что не хочу вообще ничего.»</p>
+        <p class="voice">Снаружи всё есть. А внутри пусто, и я не понимаю, почему.»</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ 3. КУКОЛКА ═════ -->
+  <section class="screen tall cocoon">
+    <div class="wrap inner">
+      <p class="eyebrow rv">02 · Настоящая причина</p>
+      <h2 class="rv" style="margin:1rem 0 1.8rem">Любую проблему я сведу к одному: вы ещё не повзрослели.</h2>
+      <p class="dim rv">Человек рождается гусеницей. Стать бабочкой – не автоматический момент. Биологически вы взрослеете сами, психологически это осознанный выбор, который большинство так и не делает.</p>
+      <p class="dim rv">Пока вашему сыну нет 18 лет, с ним никто не подпишет контракт. Так же и ваша душа не подписывает контрактов с невзрослым.</p>
+      <p class="rv">Поэтому я не обещаю пробуждения. Я обещаю эволюцию.</p>
+    </div>
+  </section>
+
+  <!-- ═════ 4. РАСКРЫТИЕ ═════ -->
+  <section class="screen">
+    <div class="wrap">
+      <p class="eyebrow rv">03 · Метод</p>
+      <h2 class="rv narrow" style="margin:1rem 0 1.2rem">3 слоя, которые нельзя разделить.</h2>
+      <p class="dim narrow rv">Большинство специалистов работают с одним слоем. Я работаю со всеми 3 одновременно – потому что изменение в одном меняет остальные.</p>
+      <div class="layers">
+        <div class="layer rv">
+          <p class="n">Слой 1</p><h3>Тело</h3>
+          <p>Усталость, бессонница, гормональные сбои – это не поломки, это сигналы. Тело держит то, что вы не прожили и не назвали вслух.</p>
+        </div>
+        <div class="layer rv">
+          <p class="n">Слой 2</p><h3>Психика</h3>
+          <p>Здесь живут автоматизмы. Почему вы снова соглашаетесь на меньшее. Почему паралич приходит в самый важный момент.</p>
+        </div>
+        <div class="layer rv">
+          <p class="n">Слой 3</p><h3>Душа</h3>
+          <p>Не абстракция и не эзотерика, а конкретная система с конкретными потребностями. Это ваш внутренний компас.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════ 5. ФИНАЛ ═════ -->
+  <section class="screen">
+    <div class="wrap narrow">
+      <p class="eyebrow rv">04 · Начать</p>
+      <h2 class="rv" style="margin:1rem 0 1.4rem">Если чувствуете, что это про вас – напишите.</h2>
+      <p class="dim rv" style="margin-bottom:2.4rem">Первый разговор нужен, чтобы понять, подходим ли мы друг другу. Готовить ничего не нужно.</p>
+      <p class="rv"><a class="btn" href="#">Написать Марине</a></p>
+    </div>
+  </section>
+
+  <div class="note">
+    <div class="wrap">
+      <h2>Что здесь происходит</h2>
+      <p>Фон – это не картинка и не видео. Это живое поле из 900 точек, которое меняет форму по мере прокрутки: сначала хаос, к середине страницы точки собираются в куколку, к разделу про метод – раскрываются в бабочку. Плюс свет, который идёт за курсором: «где ваше внимание, там собирается сила» – это её собственная фраза.</p>
+      <p>Ничего не скачивается: ни видео, ни фото, ни библиотек. Весь эффект – около 120 строк кода, страница весит меньше одной фотографии и одинаково работает на телефоне.</p>
+      <p><a href="../styles/">← 3 варианта стиля</a> · <a href="../">текущая версия лендинга</a></p>
+    </div>
+  </div>
+
+</main>
+
+<script>
+document.documentElement.className += ' js';
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ───── появление блоков ───── */
+  var rv = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    rv.forEach(function(e){ e.classList.add('on'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -10% 0px', threshold:.05});
+    rv.forEach(function(e){ io.observe(e); });
+  }
+
+  /* ───── свет за курсором ───── */
+  var light = document.getElementById('light'), lx=0, ly=0, cx=0, cy=0;
+  addEventListener('pointermove', function(e){ lx=e.clientX; ly=e.clientY; }, {passive:true});
+
+  /* ───── живое поле ───── */
+  var cv = document.getElementById('field'), ctx = cv.getContext('2d');
+  var W=0, H=0, DPR=Math.min(devicePixelRatio||1, 2);
+  var N = innerWidth < 760 ? 340 : 900;
+  var pts = [], chaos = [], cocoon = [], fly = [], shapeCx = 0;
+
+  function resize(){
+    W = cv.width  = Math.floor(innerWidth  * DPR);
+    H = cv.height = Math.floor(innerHeight * DPR);
+    cv.style.width = innerWidth + 'px';
+    cv.style.height = innerHeight + 'px';
+    build();
+  }
+
+  function build(){
+    var wide = innerWidth >= 900;
+    var cxp = W * (wide ? 0.70 : 0.5), cyp = H * (wide ? 0.5 : 0.44), S = Math.min(W,H);
+    chaos.length = cocoon.length = fly.length = 0;
+    for (var i=0;i<N;i++){
+      /* хаос — равномерная россыпь */
+      chaos.push({x: Math.random()*W, y: Math.random()*H});
+
+      /* куколка — заострённый вертикальный овал */
+      var t = (i/N) * Math.PI*2;
+      var taper = 1 - 0.42*Math.abs(Math.cos(t));
+      var jitter = 0.86 + Math.random()*0.14;
+      cocoon.push({
+        x: cxp + Math.sin(t) * S*0.085 * taper * jitter,
+        y: cyp + Math.cos(t) * S*0.235 * jitter
+      });
+
+      /* бабочка — кривая Фэя */
+      var th = (i/N) * Math.PI*24;
+      var r = Math.exp(Math.cos(th)) - 2*Math.cos(4*th) + Math.pow(Math.sin(th/12),5);
+      fly.push({
+        x: cxp + Math.sin(th) * r * S*0.075,
+        y: cyp - Math.cos(th) * r * S*0.075
+      });
+    }
+    shapeCx = cxp;
+    if (!pts.length){
+      for (var j=0;j<N;j++) pts.push({x:chaos[j].x, y:chaos[j].y, ph:Math.random()*6.28, sp:.5+Math.random()});
+    }
+  }
+
+  function lerp(a,b,k){ return a + (b-a)*k; }
+  function ease(k){ return k<0 ? 0 : k>1 ? 1 : k*k*(3-2*k); }
+
+  var tint = document.getElementById('tint');
+  var progress = 0, shown = -1;
+  var qp = new URLSearchParams(location.search).get('p');
+  var forced = qp === null ? null : Math.min(1, Math.max(0, parseFloat(qp)));
+
+  function paintTint(p){
+    var stage = p < .34 ? 0 : p < .66 ? 1 : 2;
+    if (stage === shown) return;
+    shown = stage;
+    tint.style.background =
+      stage === 0 ? 'radial-gradient(120% 80% at 20% 10%, rgba(24,30,64,.55), rgba(4,5,10,.92) 70%)' :
+      stage === 1 ? 'radial-gradient(90% 60% at 50% 45%, rgba(12,16,38,.5), rgba(2,3,7,.96) 68%)' :
+                    'radial-gradient(120% 90% at 70% 30%, rgba(18,84,110,.42), rgba(40,20,80,.30) 45%, rgba(4,5,10,.9) 78%)';
+  }
+
+  var t0 = performance.now();
+  function frame(now){
+    var dt = (now - t0)/1000; t0 = now;
+
+    /* прокрутка → фаза (?p=0.5 фиксирует фазу — для съёмки кадров) */
+    if (forced !== null) { progress = forced; }
+    else {
+      var max = document.body.scrollHeight - innerHeight;
+      progress = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    }
+    paintTint(progress);
+
+    /* свет догоняет курсор */
+    cx = lerp(cx, lx, .09); cy = lerp(cy, ly, .09);
+    light.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+
+    /* смешивание форм */
+    var kCocoon = ease((progress - .30) / .22);
+    var kFly    = ease((progress - .60) / .22);
+    var flap    = Math.sin(now/900) * 0.06 * kFly;
+
+    ctx.clearRect(0,0,W,H);
+
+    /* свечение за формой */
+    var glow = Math.max(kCocoon, kFly);
+    if (glow > 0.02){
+      var gr = ctx.createRadialGradient(shapeCx, H*0.5, 0, shapeCx, H*0.5, Math.min(W,H)*0.42);
+      gr.addColorStop(0, 'rgba(60,160,190,' + (0.16*glow) + ')');
+      gr.addColorStop(1, 'rgba(60,160,190,0)');
+      ctx.fillStyle = gr;
+      ctx.fillRect(0,0,W,H);
+    }
+
+    for (var i=0;i<N;i++){
+      var p = pts[i], a = chaos[i], b = cocoon[i], c = fly[i];
+
+      /* медленный дрейф в фазе хаоса */
+      p.ph += dt * 0.28 * p.sp;
+      var dx = Math.sin(p.ph) * 26 * DPR * (1 - kCocoon);
+      var dy = Math.cos(p.ph*0.8) * 22 * DPR * (1 - kCocoon);
+
+      var tx = lerp(lerp(a.x + dx, b.x, kCocoon), c.x, kFly);
+      var ty = lerp(lerp(a.y + dy, b.y, kCocoon), c.y, kFly);
+
+      /* взмах крыльев */
+      if (kFly > 0){ tx = shapeCx + (tx - shapeCx) * (1 - flap); }
+
+      p.x = lerp(p.x, tx, reduce ? 1 : .075);
+      p.y = lerp(p.y, ty, reduce ? 1 : .075);
+
+      var alpha = (.16 + .58*kCocoon + .34*kFly) * (innerWidth < 900 ? .62 : 1);
+      var rad = (1.1 + .7*kFly) * DPR;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, rad, 0, 6.2832);
+      ctx.fillStyle = kFly > 0
+        ? 'rgba(' + Math.round(120+60*kFly) + ',' + Math.round(200+30*kFly) + ',225,' + alpha + ')'
+        : 'rgba(' + Math.round(150+30*kCocoon) + ',' + Math.round(175+35*kCocoon) + ',230,' + alpha + ')';
+      ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  addEventListener('resize', resize, {passive:true});
+  resize();
+  if (reduce){ progress = 1; }
+  requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
+</html>
